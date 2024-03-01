@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .close-button,
+.close-button9,
+.close-button8,
+.close-button7,
+.close-button6,
+.close-button5,
+.close-button4,
+.close-button3
+{
+position: relative;
+left: 80%;
+content: 'закрыть';
+top: 500px;
+background: #131313;
+border: none;
+color: #fff;
+font-family: isocpeur;
+font-size: 20px;
+width: 100px;
+height: 20px;
+transition: .3s;
+animation: close 2s;
+}
+.close-button6:hover,
+.close-button5:hover,
+.close-button7:hover,
+.close-button4:hover,
+.close-button8:hover,
+.close-button9:hover,
+.close-button:hover
+{
+  background: #e0e0e0;
+  color: #000;
+  border-top: 1px solid black;
+  border-bottom:1px solid black ;
+}
+.close-button::before,
+.close-button9::before,
+.close-button8::before,
+.close-button7::before,
+.close-button6::before,
+.close-button5::before,
+.close-button4::before,
+.close-button3::before
+{
+    content: 'x';
+    position: relative;
+    top: -5px;
+}
+@keyframes close
+{
+  0%
+  {
+    top: -1000px;
+  }
+  100%
+  {
+    top: 500px;
+  }
+}
+.box-wrapper
+{
+    visibility: hidden;
+    width: 100px;
+    height: 100px;
+    background: #000;
+    display: block;
+    z-index: -1;
+    position: absolute;
+}
+.container2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.box2 {
+  visibility: hidden;
+  width: 10%;
+  height: 10000px;
+  position: absolute;
+  top: -1000;
+  left: 0;
+  transition: top 0.5s;
+  transition:1s;
+}
+
+@keyframes box
+{
+0%
+{
+  height: 0%;
+}
+100%
+{
+  height: 100px;
+}
+}
+
+.box2:nth-child(1) {
+  background: #e0e0e0;
+  left: 10%;
+  transition-delay: 0.2s;
+}
+
+.box2:nth-child(2) {
+  background: #e0e0e0;
+  left: 20%;
+  transition-delay: 0.6s;
+}
+
+.box2:nth-child(3) {
+  background: #e0e0e0;
+  left: 30%;
+  transition-delay: 0.3s;
+}
+.box2:nth-child(4) {
+background: #e0e0e0;
+left: 40%;
+transition-delay: 0.5s;
+}
+.box2:nth-child(5) {
+background: #e0e0e0;
+left: 50%;
+transition-delay: 0.4s;
+}
+.box2:nth-child(6) {
+background: #e0e0e0;
+left: 60%;
+transition-delay: 0.8s;
+}
+.box2:nth-child(7) {
+background: #e0e0e0;
+left: 70%;
+transition-delay: 1s;
+}
+.box2:nth-child(8) {
+background: #e0e0e0;
+left: 80%;
+transition-delay: 0.9s;
+}
+.box2:nth-child(9) {
+background: #e0e0e0;
+left: 90%;
+transition-delay: 0.7s;
+}
+.box2:nth-child(10) {
+background: #e0e0e0;
+left: 0%;
+transition-delay: 0.7s;
+}
+.box2:nth-child(11) {
+background: #e0e0e0;
+left: 10%;
+transition-delay: 0.7s;
+}
+    </style>
+</head>
+<body>
+    <div id="text2" class="button-list-one-slide-two">
+        <span>металлокерамика</span>
+        <span>
+      </div>
+
+      <div class="container3">
+        <div class="text-container6">
+          <div class="title-cont6">
+          </div>
+        </div>
+        <div class="box3">ZrO2</div>
+    </div>
+    <div class="container2">
+        
+        <div class="box-wrapper"></div>
+      </div>
+      <div class="box2">металлокерамика</div>
+  </div>
+
+    <script>
+        const container2 = document.querySelector(".container2");
+const template4 = document.querySelector(".box2");
+const text2 = document.getElementById("text2");
+
+// Создаем кнопку "Закрыть" и задаем ей стили display: none
+for (let i = 0; i < 10; i++) {
+    const clonedbox2 = template4.cloneNode(true);
+    container2.appendChild(clonedbox2);
+}
+
+let isbox2Visible = false;
+
+text2.addEventListener("click", function() {
+    const boxWrapper = document.querySelector(".box-wrapper");
+    boxWrapper.style.visibility = "visible"; // Показываем box-wrapper
+
+    if (!isbox2Visible) {
+        const box2es = document.querySelectorAll(".box2");
+        box2es.forEach(box2 => {
+            box2.style.visibility = "visible";
+            setTimeout(() => {
+                box2.style.top = "0";
+            }, 100);
+        });
+        isbox2Visible = true;
+
+        // При открытии меняем стиль кнопки на display: block
+        closebutton.style.display = "block";
+    } else {
+        const box2es = document.querySelectorAll(".box2");
+        box2es.forEach(box2 => {
+            box2.style.top = "-11250px";
+            setTimeout(() => {
+                box2.style.visibility = "hidden";
+            }, 500); // Задержка должна быть равна времени анимации
+        });
+        isbox2Visible = false;
+
+        // При закрытии скрываем box-wrapper
+        boxWrapper.style.visibility = "hidden";
+
+        // При закрытии скрываем кнопку
+        closebutton.style.display = "none";
+    }
+});
+
+const closebutton = document.createElement("button");
+closebutton.classList.add("close-button");
+closebutton.style.display = "none";
+container2.appendChild(closebutton);
+closebutton.addEventListener("click", function() {
+    const box2es = document.querySelectorAll(".box2");
+    box2es.forEach(box2 => {
+        box2.style.top = "-11250px";
+        setTimeout(() => {
+            box2.style.visibility = "hidden";
+        }, 500);
+    });
+    isbox2Visible = false;
+
+    // При нажатии на кнопку "Закрыть" скрываем ее
+    closebutton.style.display = "none";
+
+    // При закрытии скрываем box-wrapper
+    const boxWrapper = document.querySelector(".box-wrapper");
+    boxWrapper.style.visibility = "hidden";
+});
+
+    </script>
+</body>
+</html>
